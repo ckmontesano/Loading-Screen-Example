@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="loadingScreen">
+        <h1>Loading...</h1>
+    </div>
+    <div class="container hidden"><!-- the "hidden" class (references in the style.scss file)-->
+        <h1>Hello, World!</h1>
+    </div>
+</body>
+</html>
+
+<script type="application/javascript">
+    // create connections to html elements
+    const loadingScreen = document.querySelector(".loadingScreen");
+    const container = document.querySelector(".container");
+
+    // add a listener for the "load" event
+    // this event fires when the page is fully done loading
+    window.addEventListener("load", () => {
+        setTimeout(() => {
+            // element.classList returns an array of the class names for the element
+            // You can imagine what .add and .remove do
+            loadingScreen.classList.add("hidden")
+            container.classList.remove("hidden")
+        }, 1000);
+    });
+</script>
